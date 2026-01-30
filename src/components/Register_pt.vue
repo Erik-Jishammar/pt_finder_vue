@@ -89,20 +89,25 @@ export default {
             })
             .then((response) =>{
                 if(response.ok){
-                 console.log('PtFormData collected to db');
-                 this.name = ''
-                 this.cost = ''
-                 this.skills = []
-                    
-                } else {
+                    return response.json();
+                 } else {
                     throw new Error('Could not save data to db')
                 }
                
+            }) .then(data =>{ // id from firebase to variable data
+                console.log('ID:', data.name);
+
+                // save id to store
+                this.$store.commit('registerPtId', data.name);
+                 this.name = ''
+                 this.cost = ''
+                 this.skills = []
             })
+            .catch(error => console.error(error)); 
 
 
                 
-        }
+        }  
         
     }
 }   

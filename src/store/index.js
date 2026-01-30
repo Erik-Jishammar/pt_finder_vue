@@ -1,10 +1,18 @@
 import { createStore } from "vuex";
 
-createStore({
-state: {
+const store = createStore({
+state() {
+    return {
+        registeredPtIds: [] // store all ids
+    };
 
+
+}, mutations: {
+    registerPtId(state, id){
+        state.registeredPtIds.push(id);
+    }
 }
 })
 
 
-export default createStore;
+export default store
