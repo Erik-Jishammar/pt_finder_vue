@@ -1,0 +1,1 @@
+export const firebaseURL = 'https://ptfinderex-default-rtdb.europe-west1.firebasedatabase.app/'

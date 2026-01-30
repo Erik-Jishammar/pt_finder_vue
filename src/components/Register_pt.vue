@@ -46,6 +46,7 @@
   </template>
 
 <script>
+import { firebaseURL } from '../firebase/firebase_config';
 export default {
     data(){
         return{
@@ -78,7 +79,7 @@ export default {
                 cost: this.cost,
                 skills: this.skills
             }
-            fetch('https://ptfinderex-default-rtdb.europe-west1.firebasedatabase.app/pts.json', {
+            fetch(firebaseURL + 'pts.json', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
