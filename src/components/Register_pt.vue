@@ -59,7 +59,20 @@ export default {
     }, methods: {
         submitForm(){ // validation rules
 
-                console.log("PT:", this.name + this.cost + this.skills);
+            if(this.name.trim() === ''){
+                console.error('You need to enter your name!')
+                return;
+            }
+            if(this.cost <= 0 || this.cost.trim() === ''){
+                console.error('You need to enter your cost per hour!')
+                return;
+            }
+            if(this.skills.length === 0){
+                console.error('You need to select atleast one skill!')
+            }
+
+
+                console.log("PT registrated:", this.name + this.cost + this.skills);
         }
     }
 }   
