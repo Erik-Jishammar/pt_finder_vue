@@ -1,6 +1,6 @@
 <template>
     <div class="container"> <!-- in case we want to style later on-->
-        <form method="POST" @submit.prevent="submitForm" id="form-container">
+        <form @submit.prevent="submitForm" id="form-container">
          <h1> Register PT</h1>
             <div>
                  <label for="name">Name:</label>
@@ -69,11 +69,40 @@ export default {
             }
             if(this.skills.length === 0){
                 console.error('You need to select atleast one skill!')
+                return;
             }
+            console.log("PT registrated:", this.name + this.cost + this.skills);
+
+            const ptFormData = {
+                name: this.name, 
+                cost: this.cost,
+                skills: this.skills
+            }
+            fetch('https://ptfinderex-default-rtdb.europe-west1.firebasedatabase.app/pts.json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(ptFormData)
+
+            })
+            .then((response) =>{
+                if(response.ok){
+                 console.log('PtFormData collected to db');
+                 this.name = ''
+                 this.cost = ''
+                 this.skills = []
+                    
+                } else {
+                    throw new Error('Could not save data to db')
+                }
+               
+            })
 
 
-                console.log("PT registrated:", this.name + this.cost + this.skills);
+                
         }
+        
     }
 }   
 
