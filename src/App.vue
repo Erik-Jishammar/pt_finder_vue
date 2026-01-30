@@ -1,17 +1,21 @@
 <template>
-  <h1>
-    PT finder with vue
-  </h1>
+  <div id="app">
+    <nav>
+           <router-link to="/">Home</router-link>
+           <router-link to="/pts/1">PT Details</router-link>
+           <router-link to="/register">Register</router-link>
+           <router-link to="/requests">PT requests</router-link>
+    </nav>
+    <router-view />
+  </div>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  
 }
 </script>
 
