@@ -1,8 +1,19 @@
 <template>
-    <div>
+    <div id="list_pt">
         <h1> List of PTs</h1>
         <ul>
             <li v-for=" pt in pts" :key="pt.id">
+            <div class="list-container">
+            <h3> {{ pt.name }}</h3>
+            <p>Cost:{{ pt.cost }}kr/h</p>
+            <p>Skills preview:</p>
+            <div class="skills-list" v-for="skill in pt.skills" :key="skill">
+                {{ skill }}
+            </div>
+            <div>
+                <button @click="viewDetails(pt.id)"> view details</button>
+            </div>
+            </div>
             
             </li>
         </ul>
@@ -35,6 +46,9 @@ export default {
                 this.pts = results;
                 console.log(results);
             });
+        }, 
+        viewDetails(id){
+            this.$router.push('/pts/' + id)
         }
     },
     mounted() {
