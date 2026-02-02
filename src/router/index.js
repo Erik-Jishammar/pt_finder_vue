@@ -5,7 +5,7 @@ import Home_page from "@/components/Home_page.vue";
 import List_pt from "@/components/List_pt.vue";
 import Register_pt from "@/components/Register_pt.vue";
 import Details_pt from "@/components/Details_pt.vue";
-import Requests_pt from "@/components/Requests_pt.vue";
+import ViewRequests from "@/components/ViewRequests.vue";
 
 
 const routes = [{
@@ -26,7 +26,7 @@ const routes = [{
     },
     {
         path: '/requests',
-        component: Requests_pt
+        component: ViewRequests
     }]
 
 const router = createRouter({
