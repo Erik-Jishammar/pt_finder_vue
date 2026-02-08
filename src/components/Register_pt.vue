@@ -1,7 +1,7 @@
 <template>
     <div class="container"> <!-- in case we want to style later on-->
         <form @submit.prevent="submitForm" id="form-container">
-         <h1> Register PT</h1>
+         <h1> Register for PT</h1>
             <div>
                  <label for="name">Name:</label>
                  <input type="text" v-model="name" required id="name">

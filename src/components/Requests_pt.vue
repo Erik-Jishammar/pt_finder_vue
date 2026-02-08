@@ -34,6 +34,7 @@ export default {
       } 
      if(this.msg.trim() === ''){
       console.error('You need to enter your message')
+      return;
      } 
      const msgData = {
         email: this.email,
